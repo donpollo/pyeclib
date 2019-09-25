@@ -252,7 +252,7 @@ pyeclib_c_init(PyObject *self, PyObject *args)
   pyeclib_handle->ec_args.k = k;
   pyeclib_handle->ec_args.m = m;
   pyeclib_handle->ec_args.hd = hd;
-  pyeclib_handle->ec_args.ct = use_inline_chksum ? CHKSUM_CRC32 : CHKSUM_NONE;
+  pyeclib_handle->ec_args.ct = 0;
 
   if (validate)
     redirect_stderr();
@@ -903,7 +903,7 @@ static int chksum_length(uint8_t chksum_type)
     case CHKSUM_NONE: 
       // None
       break;
-    case CHKSUM_CRC32:
+    case CHKSUM_nnn32:
       // CRC 32
       length = 4;
       break;
