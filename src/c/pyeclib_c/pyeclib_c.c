@@ -898,22 +898,7 @@ static const char* chksum_type_to_str(uint8_t chksum_type)
 static int chksum_length(uint8_t chksum_type)
 {
   int length = 0;
-  switch (chksum_type)
-  {
-    case CHKSUM_NONE: 
-      // None
-      break;
-    case CHKSUM_nnn32:
-      // CRC 32
-      length = 4;
-      break;
-    case CHKSUM_MD5:
-      // MD5
-      length = 16;
-      break;
-    default:
-      length = 0;
-  }
+
   return length;
 }
 
